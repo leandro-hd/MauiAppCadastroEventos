@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroEventos.Views.EventoCadastrado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#18181B">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Label Text="{Binding NomeEvento}"
+               FontSize="36"
+               TextColor="#C084FC"
+               FontFamily="PoppinsRegular"
+               HorizontalTextAlignment="Center"/>
+
+        <Label Text="{Binding LocalEvento}"
+               FontSize="24"
+               TextColor="#F4F4F5"
+               FontFamily="PoppinsRegular"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10" BackgroundColor="#18181B">
+            <StackLayout  Orientation="Horizontal" >
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Total de participantes: "
+                        TextColor="#F4F4F5"
+                        FontFamily="PoppinsRegular" />
+                    <Label Text="{Binding QntParticipantes}" 
+                           TextColor="#C084FC"
+                           FontFamily="PoppinsRegular" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Frame>
+
+        <Frame Margin="10" BackgroundColor="#3F3F46">
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0"
+                    Text="Data inicial"
+                    TextColor="#F4F4F5"
+                    FontFamily="PoppinsRegular" />
+                <Label Grid.Row="0" Grid.Column="1"
+                    Text="Data final"
+                    TextColor="#F4F4F5"
+                    FontFamily="PoppinsRegular" />
+                <Label Grid.Row="0" Grid.Column="2"
+                    Text="Período (dias)"
+                    TextColor="#F4F4F5"
+                    FontFamily="PoppinsRegular" />
+
+                <Label Grid.Row="1" Grid.Column="0" 
+                       Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="#C084FC"
+                       FontFamily="PoppinsRegular" />
+
+                <Label Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="#C084FC"
+                       FontFamily="PoppinsRegular" />
+
+                <Label Grid.Row="1" Grid.Column="2" 
+                       Text="{Binding Estadia}"
+                       TextColor="#C084FC"
+                       FontFamily="PoppinsRegular"/>
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10" BackgroundColor="#3F3F46">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Valor Total: "
+                    FontSize="20"
+                    TextColor="#F4F4F5"
+                    FontFamily="PoppinsRegular" />
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'} "
+                       FontSize="20"
+                       TextColor="#C084FC"
+                       FontFamily="PoppinsRegular" />
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Margin="0,24"
+                Text="Voltar"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"
+                BackgroundColor="#A78BFA" />
+
+    </VerticalStackLayout>
+</ContentPage>

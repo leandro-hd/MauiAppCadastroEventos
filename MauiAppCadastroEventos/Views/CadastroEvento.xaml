@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroEventos.Views.CadastroEvento"
+             Title="CadastroEvento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#18181B">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10,30"
+                         Spacing="10">
+
+        <Label Text="Cadastro de Eventos"
+               FontSize="28"
+               TextColor="#C084FC"
+               FontFamily="PoppinsRegular" />
+
+        <Frame Padding="10"
+              BackgroundColor="#18181B">
+            <VerticalStackLayout>
+                <Frame Padding="10"
+                       Margin="10"
+                       BackgroundColor="#3F3F46">
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label Text="Detalhes do evento"
+                               TextTransform="Uppercase"
+                               FontSize="Subtitle"
+                               TextColor="#C084FC"
+                               FontFamily="PoppinsRegular"/>
+
+                        <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+                            <Label
+                                   Text="Nome:"
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular" />
+
+                            <Entry x:Name="txt_nome_evento"
+                                   Placeholder="Digite o nome do evento"
+                                   Text=""
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular"
+                                   Keyboard="Default" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+                            <Label
+                                   Text="Local:"
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular" />
+
+                            <Entry x:Name="txt_local_evento"
+                                   Placeholder="Digite o local do evento"
+                                   Text=""
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular"
+                                   Keyboard="Default" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+                            <Label
+                                   Text="Custo:"
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular" />
+
+                            <Entry x:Name="txt_custo_evento"
+                                   Placeholder="R$ 500.00"
+                                   Text=""
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular"
+                                   Keyboard="Default" />
+                        </HorizontalStackLayout>
+
+                        <Grid RowDefinitions="Auto, Auto"
+                            ColumnDefinitions="2*, *, 2*">
+
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   Text="Participantes:"
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular"
+                                   HorizontalTextAlignment="Start" />
+
+                            <Label Grid.Row="0" Grid.Column="1"
+                                   TextColor="#C084FC"
+                                   Text="{Binding Value}"
+                                   BindingContext="{x:Reference stp_numero_participantes}"/>
+
+                            <Stepper Grid.Row="0" Grid.Column="2"
+                                          x:Name="stp_numero_participantes"
+                                          Minimum="0"
+                                          Maximum="10"
+                                          Increment="1" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Padding="10"
+                       Margin="10"
+                       BackgroundColor="#3F3F46">
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label Text="Duração do evento"
+                               TextTransform="Uppercase"
+                               FontSize="Subtitle"
+                               TextColor="#C084FC"
+                               FontFamily="PoppinsRegular"/>
+
+                        <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Data de início:"
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular" />
+                            <DatePicker x:Name="dtpck_checkin"
+                                        DateSelected="dtpck_checkin_DateSelected"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Data de término:"
+                                   TextColor="#F4F4F5"
+                                   FontFamily="PoppinsRegular" />
+                            <DatePicker x:Name="dtpck_checkout"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Button Margin="0,24"
+                     Text="Avançar"
+                     Clicked="Button_Clicked"
+                     BackgroundColor="#A78BFA"  />
+
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+
+</ContentPage>
